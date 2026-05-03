@@ -1,0 +1,28 @@
+# Visual Studio hidden settings
+.vs/
+*.user
+*.suo
+*.db
+*.opendb
+*.VC.db
+
+# Build outputs and compilation artifacts
+x64/
+x86/
+Debug/
+Release/
+*.dll
+*.exe
+*.pdb
+*.obj
+*.iobj
+*.lib
+*.exp
+*.tlog
+*.res
+*.idb
+*.ilk
+
+# vcpkg specific tracking
+vcpkg_installed/
+vcpkg.applocal.log

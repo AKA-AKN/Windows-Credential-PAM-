@@ -1,0 +1,15 @@
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
+// Copyright (c) Microsoft Corporation. All rights reserved.
+//
+
+// 5fd3d285-0dd9-4362-8855-e0abaacd4af6
+#pragma once
+#include <guiddef.h>
+
+extern const GUID CLSID_CSample;
+extern const GUID CLSID_CFilter;

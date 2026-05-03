@@ -1,0 +1,22 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{5fd3d285-0dd9-4362-8855-e0abaacd4af6}]
+@="SampleV2CredentialProvider"
+
+[HKEY_CLASSES_ROOT\CLSID\{5fd3d285-0dd9-4362-8855-e0abaacd4af6}]
+@="SampleV2CredentialProvider"
+
+[HKEY_CLASSES_ROOT\CLSID\{5fd3d285-0dd9-4362-8855-e0abaacd4af6}\InprocServer32]
+@="SampleV2CredentialProvider.dll"
+"ThreadingModel"="Apartment"
+
+; Register the Bouncer (Filter)
+[HKEY_CLASSES_ROOT\CLSID\{B0B47A83-05B3-4E83-9C1C-A1AE6632B9EE}]
+@="Enterprise PAM Filter"
+
+[HKEY_CLASSES_ROOT\CLSID\{B0B47A83-05B3-4E83-9C1C-A1AE6632B9EE}\InprocServer32]
+@="SampleV2CredentialProvider.dll"
+"ThreadingModel"="Apartment"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provider Filters\{B0B47A83-05B3-4E83-9C1C-A1AE6632B9EE}]
+@="Enterprise PAM Filter"
