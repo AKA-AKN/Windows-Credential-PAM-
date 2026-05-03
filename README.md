@@ -52,20 +52,46 @@ PowerShell
 
 **Crucial:** Copy the resulting `Server_Anchor_Key.cer` file to your server and place it in the exact path you defined in `CSampleCredential.cpp`.
 
-## ⚙️ Compilation Instructions
+## ⚙️ Build & Compilation Instructions (SDK Injection Method)
 
-1.  Ensure you have **Microsoft Visual Studio Build Tools** installed with the "Desktop development with C++" workload and the Windows 11/10 SDK.
+To keep this repository lightweight, this project is designed to be injected directly into the official Microsoft Windows Classic Samples SDK.
+
+**Step 1: Install Prerequisites** Ensure you have **Microsoft Visual Studio Build Tools** installed. You must include the "Desktop development with C++" workload and the Windows 11 (or Windows 10) SDK.
+
+**Step 2: Download the Official Base SDK**
+
+1.  Navigate to the official Microsoft repository: [Windows-classic-samples](https://github.com/microsoft/Windows-classic-samples).
     
-2.  Clone this repository to your local machine.
+2.  Download the repository as a ZIP and extract it to your local machine.
     
-3.  Open the **Developer Command Prompt for VS**.
-    
-4.  Navigate to the project directory and run the MSBuild compiler:
+3.  Locate the target directory: `Windows-classic-samples-main\Samples\CredentialProvider\cpp`.
     
 
-DOS
+**Step 3: Inject the Custom Architecture**
 
-    msbuild SampleV2CredentialProvider.sln /p:Configuration=Release /p:Platform=x64
+1.  Clone this `Windows-Credential-PAM` repository to your machine.
+    
+2.  Copy all files from this repository (`.cpp`, `.h`, `.vcxproj`, `.reg`, etc.).
+    
+3.  Paste them into the SDK's `cpp` folder from Step 2, **overwriting** the original Microsoft sample files when prompted.
+    
+
+**Step 4: Compile the DLL**
+
+1.  Open your Windows Start Menu and launch the **Developer Command Prompt for VS**.
+    
+2.  Navigate to the `cpp` folder where you injected the code:
+    
+    DOS
+    
+        cd C:\Path\To\Windows-classic-samples-main\Samples\CredentialProvider\cpp
+    
+3.  Run the MSBuild compiler to generate the 64-bit payload:
+    
+    DOS
+    
+        msbuild SampleV2CredentialProvider.sln /p:Configuration=Release /p:Platform=x64
+    
 
 Your compiled payload will be located at `x64\Release\SampleV2CredentialProvider.dll`.
 
@@ -73,7 +99,7 @@ Your compiled payload will be located at `x64\Release\SampleV2CredentialProvider
 
 _Warning: Test this in a Virtual Machine Sandbox before deploying to a production Domain Controller. Misconfiguring a Credential Provider Filter can lock you out of your server._
 
-1.  Copy `SampleV2CredentialProvider.dll` to your server's `C:\Windows\System32` directory.
+1.  Copy your newly compiled `SampleV2CredentialProvider.dll` to your server's `C:\Windows\System32` directory.
     
 2.  Ensure your `Server_Anchor_Key.cer` is sitting in the correct path on the server.
     
