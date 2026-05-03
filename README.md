@@ -25,7 +25,7 @@ Open `CSampleCredential.cpp` and modify the following values:
 
 -   **The Subject Name (Your ID Badge):** Search for the `CertFindCertificateInStore` function. Change the `L"YOUR_USERNAME_HERE"` parameter to match the Common Name (CN) of your smartcard certificate (e.g., `L"akn"`).
     
--   **The Server Anchor Path:** Search for the `CreateFileW` function. Change `L"C:\\Server_Anchor_Key.cer"` to the exact path where you plan to store the exported Public Key on your Windows Server.
+-   **The Server Anchor Path:** Search for the `CreateFileW` function. Change `L"C:\\Server_Anchor_Key.cer"` to the exact path where you plan to store the exported Public Key on your Windows Server.(the .cer file in the project is named "AKN_Registered_Key.cer", so modify that according to your .cer file name) 
     
 
 ## 🛠️ Hardware Setup Guide (TPM Virtual Smart Card)
